@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::any('/setWebhook', "TelegramController@setHook");
+Route::any('/setWebhook', "TelegramController@setWebhook");
 Route::any('/AAG-SYKASFonUkzgoayUPzj2d0Jx5Mv-SL8/webhook', "TelegramController@webhookHandler");
 Route::any('/testhook', "TelegramController@hookTester");

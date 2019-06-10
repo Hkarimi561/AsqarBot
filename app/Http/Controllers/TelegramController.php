@@ -37,11 +37,12 @@ class TelegramController extends Controller
     {
         // Edit this with your webhook URL.
         // You can also use: route('bot-webhook')
-        $url = 'https://582ee457.ngrok.io/api/AAG-SYKASFonUkzgoayUPzj2d0Jx5Mv-SL8/webhook';
-        $response = $this->telegram->setWebhook()
-            ->url($url)
-            ->getResult();
-        return $response->getDecodedBody();
+        $url = 'https://d241083e.ngrok.io/api/AAG-SYKASFonUkzgoayUPzj2d0Jx5Mv-SL8/webhook';
+        $response = $this->telegram->setWebhook([
+            "url"=>$url
+        ]);
+
+        return $response;
     }
     /**
      * Remove webhook.
@@ -87,11 +88,11 @@ class TelegramController extends Controller
                     $listOfUsers.=$user;
                 }
 
-                $response = $this->telegram->sendMessage([
-                    'chat_id' => $message->chat->id,
-                    'parse_mode'=>'Markdown',
-                    'text' => $listOfUsers
-                ]);
+//                $response = $this->telegram->sendMessage([
+//                    'chat_id' => $message->chat->id,
+//                    'parse_mode'=>'Markdown',
+//                    'text' => $listOfUsers
+//                ]);
             }
         }else if ($message->newChatMembers){
             $c_id=$message->chat->id;
